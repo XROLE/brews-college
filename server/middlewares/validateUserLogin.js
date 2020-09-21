@@ -25,9 +25,6 @@ export default class validateUserLogin {
     try {
       const { passwor } = req.body;
       const { passwor: hashedPassword } = user[0].dataValues;
-      console.log('I am a chosen one password =================================================>', passwor);
-      console.log('I am a chosen one hashedPassword =================================================>', hashedPassword);
-      console.log('I am a chosen one user ===========================================================>', user);
 
       if (!comparePassword(passwor, hashedPassword)) {
         return res.status(400).send('Invalid password');

@@ -29,7 +29,6 @@ class Users {
       email, 
       passwor: passwordToSave, 
     };
-    console.log('I am a chosen one creating user ==========================================================================>');
     await User.create(data);
     const token = createToken(data);
 
