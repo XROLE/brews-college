@@ -2,8 +2,15 @@ import express from 'express';
 import Users from '../controllers/user';
 
 import ValidateUsers from '../middleWares/validateUser';
+import validateUserLogin from '../middleWares/validateUserLogin';
 
 const router = express.Router();
+
+router.route('/login').post(
+  validateUserLogin.checkUserExist,
+  validateUserLogin.comparePassword,
+  Users.login,
+)
 
 router.route('/').post(
   ValidateUsers.checkIsEmpty,
